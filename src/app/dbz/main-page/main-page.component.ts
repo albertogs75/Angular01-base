@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NodeCompatibleEventEmitter } from 'rxjs/internal/observable/fromEvent';
-
-interface Personaje {
-  nombre:string;
-  poder: number;
-}
+import { Personaje } from '../interfaces/dbz.interface';
 
 
 @Component({
@@ -14,9 +10,15 @@ interface Personaje {
 })
 export class MainPageComponent {
 
+  personajes:  Personaje[] = [
+    { nombre : 'Goku', poder : 15000},
+    { nombre : 'Trunk', poder : 1500},
+    { nombre : 'Otro', poder : 1200},
+  ]
+
 nuevo: Personaje = {
-  nombre: 'Trunks',
-  poder : 14000
+  nombre: '',
+  poder : 0
 }
 
   cambiarNombre(event: any)
@@ -25,6 +27,11 @@ nuevo: Personaje = {
   }
   agregar () 
   {
+    if (this.nuevo.nombre.trim().length == 0) {return;}
+    this.personajes.push(this.nuevo);
+    this.nuevo = {
+      nombre: '', poder: 0
+    }
     console.log(this.nuevo);
   }
   agregar2 (event: any) 
