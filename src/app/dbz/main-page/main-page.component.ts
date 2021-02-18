@@ -16,28 +16,17 @@ export class MainPageComponent {
     { nombre : 'Otro', poder : 1200},
   ]
 
-nuevo: Personaje = {
-  nombre: '',
-  poder : 0
-}
+  nuevo: Personaje ={nombre: 'Maestro Alguien', poder:100};
 
-  cambiarNombre(event: any)
-  {
-    console.log(event);
-  }
-  agregar () 
-  {
-    if (this.nuevo.nombre.trim().length == 0) {return;}
-    this.personajes.push(this.nuevo);
-    this.nuevo = {
-      nombre: '', poder: 0
-    }
-    console.log(this.nuevo);
-  }
   agregar2 (event: any) 
   {
     event.preventDefault();
     console.log("agregar");
+  }
+  agregarNuevoPersonaje (personaje: Personaje) 
+  {
+      this.personajes.push(personaje);
+      console.log("hola" ,personaje.nombre);
   }
 
 }

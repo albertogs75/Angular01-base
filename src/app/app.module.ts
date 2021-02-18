@@ -9,10 +9,11 @@ import { ContadorModule } from './contador/contador-module.module';
 import { DbzModule } from './dbz/dbz.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-        
+       
   ],
   imports: [
     BrowserModule,
